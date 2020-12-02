@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import CarComponents from './components/CarComponents';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+    car = [
+        {model: 'Volvo', owner: 'Sasha', dtp: false},
+        {model: 'BMW', owner: 'Vasya', dtp: true},
+        {model: 'Mercedes', owner: 'Oleh', dtp: false},
+        {model: 'Opel', owner: 'Vasya', dtp: true},
+        {model: 'Citroen', owner: 'Stepan', dtp: false},
+        {model: 'BMW', owner: 'Sergiy', dtp: false},
+        {model: 'Volvo', owner: 'Stepan', dtp: true},
+        {model: 'Mercedes', owner: 'Sasha', dtp: true},
+        {model: 'Lada', owner: 'Vasya', dtp: true},
+    ];
+
+    render() {
+        return (
+            <div>
+                {
+                    this.car.map((car) => {
+                        return (<CarComponents item={car}/>)
+                    })
+                }
+            </div>
+        );
+    }
 }
 
 export default App;
